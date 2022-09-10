@@ -5,7 +5,7 @@
 # DO NOT RUN THIS SCRIPT ON YOUR PC OR MAC!
 #
 # The latest version of this script is available at:
-# https://github.com/hwdsl2/setup-ipsec-vpn
+# https://github.com/wizd/setup-ipsec-vpn
 #
 # Copyright (C) 2020-2022 Lin Song <linsongui@gmail.com>
 #
@@ -213,7 +213,7 @@ install_fail2ban() {
 
 get_helper_scripts() {
   bigecho "Downloading helper scripts..."
-  base_url1="https://github.com/hwdsl2/setup-ipsec-vpn/raw/master/extras"
+  base_url1="https://github.com/wizd/setup-ipsec-vpn/raw/master/extras"
   base_url2="https://gitlab.com/hwdsl2/setup-ipsec-vpn/-/raw/master/extras"
   ikev2_url1="$base_url1/ikev2setup.sh"
   ikev2_url2="$base_url2/ikev2setup.sh"
@@ -237,7 +237,7 @@ get_helper_scripts() {
 
 get_swan_ver() {
   SWAN_VER=4.7
-  base_url="https://github.com/hwdsl2/vpn-extras/releases/download/v1.0.0"
+  base_url="https://github.com/wizd/vpn-extras/releases/download/v1.0.0"
   swan_ver_url="$base_url/v1-amzn-2-swanver"
   swan_ver_latest=$(wget -t 3 -T 15 -qO- "$swan_ver_url" 2>/dev/null | head -n 1)
   [ -z "$swan_ver_latest" ] && swan_ver_latest=$(curl -fsL "$swan_ver_url" 2>/dev/null | head -n 1)
