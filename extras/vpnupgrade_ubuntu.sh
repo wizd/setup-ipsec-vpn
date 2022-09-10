@@ -3,7 +3,7 @@
 # Script to update Libreswan on Ubuntu and Debian
 #
 # The latest version of this script is available at:
-# https://github.com/hwdsl2/setup-ipsec-vpn
+# https://github.com/wizd/setup-ipsec-vpn
 #
 # Copyright (C) 2016-2022 Lin Song <linsongui@gmail.com>
 #
@@ -68,7 +68,7 @@ check_libreswan() {
   if ! printf '%s' "$ipsec_ver" | grep -qi 'libreswan'; then
 cat 1>&2 <<'EOF'
 Error: This script requires Libreswan already installed.
-       See: https://github.com/hwdsl2/setup-ipsec-vpn
+       See: https://github.com/wizd/setup-ipsec-vpn
 EOF
     exit 1
   fi
@@ -76,7 +76,7 @@ EOF
 
 get_swan_ver() {
   swan_ver_cur=4.7
-  base_url="https://github.com/hwdsl2/vpn-extras/releases/download/v1.0.0"
+  base_url="https://github.com/wizd/vpn-extras/releases/download/v1.0.0"
   swan_ver_url="$base_url/upg-v1-$os_type-$os_ver-swanver"
   swan_ver_latest=$(wget -t 3 -T 15 -qO- "$swan_ver_url" | head -n 1)
   if printf '%s' "$swan_ver_latest" | grep -Eq '^([3-9]|[1-9][0-9]{1,2})(\.([0-9]|[1-9][0-9]{1,2})){1,2}$'; then
@@ -224,7 +224,7 @@ EOF
 update_ikev2_script() {
   bigecho "Updating IKEv2 script..."
   cd /opt/src || exit 1
-  ikev2_url="https://github.com/hwdsl2/setup-ipsec-vpn/raw/master/extras/ikev2setup.sh"
+  ikev2_url="https://github.com/wizd/setup-ipsec-vpn/raw/master/extras/ikev2setup.sh"
   (
     set -x
     wget -t 3 -T 30 -q -O ikev2.sh.new "$ikev2_url"

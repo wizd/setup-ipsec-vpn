@@ -6,7 +6,7 @@
 # DO NOT RUN THIS SCRIPT ON YOUR PC OR MAC!
 #
 # The latest version of this script is available at:
-# https://github.com/hwdsl2/setup-ipsec-vpn
+# https://github.com/wizd/setup-ipsec-vpn
 #
 # Copyright (C) 2020-2022 Lin Song <linsongui@gmail.com>
 #
@@ -111,7 +111,7 @@ check_libreswan() {
     || ! printf '%s' "$ipsec_ver" | grep -qi 'libreswan'; then
 cat 1>&2 <<'EOF'
 Error: Your must first set up the IPsec VPN server before setting up IKEv2.
-       See: https://github.com/hwdsl2/setup-ipsec-vpn
+       See: https://github.com/wizd/setup-ipsec-vpn
 EOF
     exit 1
   fi
@@ -1315,7 +1315,7 @@ EOF
 }
 
 check_swan_update() {
-  base_url="https://github.com/hwdsl2/vpn-extras/releases/download/v1.0.0"
+  base_url="https://github.com/wizd/vpn-extras/releases/download/v1.0.0"
   swan_ver_url="$base_url/upg-$os_type-$os_ver-swanver"
   swan_ver_latest=$(wget -t 3 -T 15 -qO- "$swan_ver_url" | head -n 1)
   if printf '%s' "$swan_ver_latest" | grep -Eq '^([3-9]|[1-9][0-9]{1,2})(\.([0-9]|[1-9][0-9]{1,2})){1,2}$' \
@@ -1469,7 +1469,7 @@ ikev2setup() {
     esac
   done
 
-  CA_NAME="IKEv2 VPN CA"
+  CA_NAME="IKEv2 VPN CA $(hostname -s)"
   CERT_DB="sql:/etc/ipsec.d"
   CONF_DIR="/etc/ipsec.d"
   CONF_FILE="/etc/ipsec.d/.vpnconfig"

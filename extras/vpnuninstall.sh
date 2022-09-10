@@ -5,7 +5,7 @@
 # DO NOT RUN THIS SCRIPT ON YOUR PC OR MAC!
 #
 # The latest version of this script is available at:
-# https://github.com/hwdsl2/setup-ipsec-vpn
+# https://github.com/wizd/setup-ipsec-vpn
 #
 # Copyright (C) 2021-2022 Lin Song <linsongui@gmail.com>
 #
