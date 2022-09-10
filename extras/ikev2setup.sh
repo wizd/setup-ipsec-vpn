@@ -1469,7 +1469,7 @@ ikev2setup() {
     esac
   done
 
-  CA_NAME="IKEv2 VPN CA"
+  CA_NAME="IKEv2 VPN CA $(hostname -s)"
   CERT_DB="sql:/etc/ipsec.d"
   CONF_DIR="/etc/ipsec.d"
   CONF_FILE="/etc/ipsec.d/.vpnconfig"
