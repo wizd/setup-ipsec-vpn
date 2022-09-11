@@ -1097,7 +1097,7 @@ EOF
 
 add_ikev2_connection() {
   bigecho2 "Adding a new IKEv2 connection..."
-  XAUTH_POOL=${VPN_XAUTH_POOL:-'192.168.43.10-192.168.43.250'}
+  XAUTH_POOL=${VPN_XAUTH_POOL:-'192.168.43.100-192.168.43.250'}
   if ! grep -qs '^include /etc/ipsec\.d/\*\.conf$' "$IPSEC_CONF"; then
     echo >> "$IPSEC_CONF"
     echo 'include /etc/ipsec.d/*.conf' >> "$IPSEC_CONF"
@@ -1152,6 +1152,13 @@ EOF
   else
     echo "  mobike=no" >> "$IKEV2_CONF"
   fi
+cat >> "$IKEV2_CONF" <<EOF
+
+conn client0
+  rightid=@vpnclient
+  rightaddresspool=192.168.43.10-192.168.43.10
+  also=ikev2-cp
+EOF
 }
 
 apply_ubuntu1804_nss_fix() {
