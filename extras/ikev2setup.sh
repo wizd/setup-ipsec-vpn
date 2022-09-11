@@ -1116,8 +1116,8 @@ conn ikev2-cp
   rightca=%same
   rightrsasigkey=%cert
   narrowing=yes
-  dpddelay=30
-  retransmit-timeout=300s
+  dpddelay=15
+  retransmit-timeout=30
   dpdaction=clear
   auto=add
   ikev2=insist

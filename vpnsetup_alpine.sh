@@ -322,8 +322,8 @@ conn shared
   pfs=no
   rekey=no
   keyingtries=5
-  dpddelay=30
-  dpdtimeout=300
+  dpddelay=15
+  dpdtimeout=30
   dpdaction=clear
   ikev2=never
   ike=aes256-sha2,aes128-sha2,aes256-sha1,aes128-sha1,aes256-sha2;modp1024,aes128-sha1;modp1024
